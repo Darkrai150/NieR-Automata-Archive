@@ -1,0 +1,648 @@
+/* ========================================================= */
+/* RESET GENERAL */
+/* ========================================================= */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================================= */
+/* VARIABLES GLOBALES */
+/* ========================================================= */
+:root {
+    --bg-color: #080808;
+    --panel-color: #111111;
+    --card-color: #0e0e0e;
+    --text-color: #c8c2b0;
+    --secondary-text: #6e6a60;
+    --accent-color: #c8a96e;
+    --accent-dim: rgba(200, 169, 110, 0.08);
+    --accent-mid: rgba(200, 169, 110, 0.18);
+    --border-color: #1f1f1f;
+    --border-accent: rgba(200, 169, 110, 0.4);
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+    --shadow-accent: 0 0 20px rgba(200, 169, 110, 0.08);
+    --font-main: 'Orbitron', sans-serif;
+}
+
+/* ========================================================= */
+/* SCROLLBAR */
+/* ========================================================= */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* ========================================================= */
+/* BODY */
+/* ========================================================= */
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ========================================================= */
+/* CONTENEDOR */
+/* ========================================================= */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ========================================================= */
+/* SIDEBAR */
+/* ========================================================= */
+.sidebar {
+    width: 240px;
+    background-color: var(--panel-color);
+    border-right: 1px solid var(--border-color);
+    padding: 36px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.sidebar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    opacity: 0.3;
+}
+
+/* ========================================================= */
+/* LOGO */
+/* ========================================================= */
+.logo {
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: 6px;
+
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.logo p {
+    color: var(--secondary-text);
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* ========================================================= */
+/* MENÚ */
+/* ========================================================= */
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--secondary-text);
+    padding: 11px 14px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-left: 2px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.nav-menu a::before {
+    content: '//';
+    font-size: 0.6rem;
+    color: var(--border-color);
+    transition: color 0.25s ease;
+    flex-shrink: 0;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--accent-color);
+    border-left-color: var(--accent-color);
+    background-color: var(--accent-dim);
+    padding-left: 18px;
+}
+
+.nav-menu a:hover::before,
+.nav-menu a.active::before {
+    color: var(--accent-color);
+}
+
+/* ========================================================= */
+/* CONTENIDO PRINCIPAL */
+/* ========================================================= */
+.main-content {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    padding: 36px 40px;
+}
+
+
+
+/* ========================================================= */
+/* HEADER */
+/* ========================================================= */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 36px;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.main-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 80px;
+    height: 1px;
+    background: var(--accent-color);
+}
+
+.header-title h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: 4px;
+
+    line-height: 1.1;
+}
+
+.header-title p {
+    color: var(--secondary-text);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    margin-top: 6px;
+    text-transform: uppercase;
+}
+
+/* ========================================================= */
+/* BARRA DE BÚSQUEDA */
+/* ========================================================= */
+.search-box {
+    position: relative;
+}
+
+.search-box::before {
+    content: '>';
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-text);
+    font-size: 0.7rem;
+    pointer-events: none;
+    transition: color 0.25s;
+}
+
+.search-box:focus-within::before {
+    color: var(--accent-color);
+}
+
+.search-box input {
+    background-color: var(--panel-color);
+    border: 1px solid var(--border-color);
+    padding: 11px 14px 11px 28px;
+    color: var(--text-color);
+    width: 260px;
+    outline: none;
+    font-family: var(--font-main);
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.search-box input::placeholder {
+    color: var(--secondary-text);
+    opacity: 0.7;
+}
+
+.search-box input:focus {
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-accent);
+}
+
+/* ========================================================= */
+/* HERO SECTION */
+/* ========================================================= */
+.hero-section {
+    background-color: var(--panel-color);
+    border: 1px solid var(--border-color);
+    padding: 56px 48px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* LÍNEAS DE ESCANEO */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 3px,
+            rgba(200, 169, 110, 0.015) 3px,
+            rgba(200, 169, 110, 0.015) 4px);
+    pointer-events: none;
+}
+
+/* ESQUINA DECORATIVA */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    border-top: 1px solid var(--border-accent);
+    border-right: 1px solid var(--border-accent);
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.hero-overlay {
+    max-width: 680px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-overlay::before {
+    content: '[ DATOS CLASIFICADOS ]';
+    display: block;
+    font-size: 0.55rem;
+    letter-spacing: 4px;
+    color: var(--accent-color);
+    opacity: 0.6;
+    margin-bottom: 16px;
+}
+
+.hero-overlay h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    line-height: 1.15;
+}
+
+.hero-overlay p {
+    line-height: 1.9;
+    color: var(--secondary-text);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    max-width: 560px;
+}
+
+/* ========================================================= */
+/* SECCIÓN DESTACADA */
+/* ========================================================= */
+.featured-section {
+    margin-bottom: 20px;
+}
+
+.featured-section h3 {
+    margin-bottom: 28px;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--secondary-text);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.featured-section h3::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent-color);
+    flex-shrink: 0;
+}
+
+.featured-section h3::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+/* ========================================================= */
+/* GRID DE TARJETAS */
+/* ========================================================= */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+/* ========================================================= */
+/* TARJETA */
+/* ========================================================= */
+.info-card {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    transition: border-color 0.25s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-accent);
+    box-shadow: var(--shadow-accent);
+}
+
+.info-card:hover::before {
+    border-color: var(--accent-color);
+}
+
+/* ========================================================= */
+/* IMAGEN EN CARDS */
+/* ========================================================= */
+.character-image {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+
+    /* Portrait para personajes, paisaje para mapas y armas */
+    aspect-ratio: 3 / 4;
+    background-color: var(--panel-color);
+    position: relative;
+}
+
+/* Las páginas de armas y mapas usan ratio landscape */
+.weapons-page .character-image,
+.maps-page .character-image {
+    aspect-ratio: 16 / 9;
+}
+
+.character-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, 0.65) 100%);
+    pointer-events: none;
+}
+
+.character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: grayscale(20%) brightness(0.85);
+}
+
+.info-card:hover .character-image img {
+    transform: scale(1.04);
+    filter: grayscale(0%) brightness(1);
+}
+
+/* ========================================================= */
+/* INFORMACIÓN EN CARDS */
+/* ========================================================= */
+.character-info {
+    padding: 20px 22px 22px;
+}
+
+.info-card h4 {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.info-card p {
+    color: var(--secondary-text);
+    line-height: 1.8;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+
+/* ========================================================= */
+/* ETIQUETA DE CATEGORÍA */
+/* ========================================================= */
+.character-tag {
+    display: inline-block;
+    font-size: 0.55rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    border: 1px solid var(--border-accent);
+    padding: 3px 10px;
+    margin-bottom: 12px;
+    background: var(--accent-dim);
+}
+
+/* ========================================================= */
+/* DATOS DE CARD */
+/* ========================================================= */
+.character-data {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 14px;
+    margin-top: 4px;
+}
+
+.character-data li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.62rem;
+    letter-spacing: 1px;
+    color: var(--secondary-text);
+    gap: 8px;
+}
+
+.character-data li strong {
+    color: var(--text-color);
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ========================================================= */
+/* FOOTER */
+/* ========================================================= */
+.footer {
+    margin-top: 64px;
+    padding: 22px 0 10px;
+    border-top: 1px solid var(--border-color);
+    color: var(--secondary-text);
+    text-align: center;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: var(--accent-color);
+    opacity: 0.5;
+}
+
+/* ========================================================= */
+/* RESPONSIVE */
+/* ========================================================= */
+@media (max-width: 900px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .sidebar::after {
+        display: none;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 24px 20px;
+    }
+
+    .nav-menu ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .nav-menu a {
+        padding: 8px 12px;
+        font-size: 0.6rem;
+    }
+
+    .hero-section {
+        padding: 36px 24px;
+    }
+
+    .hero-overlay h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-overlay::before {
+        display: none;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .main-header {
+        flex-direction: column;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .hero-section {
+        padding: 28px 18px;
+    }
+
+    .hero-overlay h2 {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+
+    .logo h1 {
+        font-size: 1.4rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
