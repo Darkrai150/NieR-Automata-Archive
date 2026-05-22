@@ -1,30 +1,40 @@
-// =========================================================
-// SLIDER DE PERSONAJES
-// =========================================================
+// ======================================================
+// BUSCADOR DE PERSONAJES
+// Filtra las tarjetas según el texto ingresado
+// ======================================================
 
-const slider = document.querySelector('.characters-slider');
+// Input de búsqueda
+const searchInput = document.querySelector(".search-box input");
 
-const nextBtn = document.querySelector('.next-btn');
-const prevBtn = document.querySelector('.prev-btn');
+// Todas las tarjetas
+const cards = document.querySelectorAll(".info-card");
 
-if (slider && nextBtn && prevBtn) {
+// Evento al escribir
+searchInput.addEventListener("input", () => {
 
-    nextBtn.addEventListener('click', () => {
+    // Texto escrito en minúsculas
+    const searchText = searchInput.value.toLowerCase();
 
-        slider.scrollBy({
-            left: 380,
-            behavior: 'smooth'
-        });
+    // Recorremos cada tarjeta
+    cards.forEach(card => {
+
+        // Texto completo de la card
+        const cardText = card.textContent.toLowerCase();
+
+        // Si coincide, mostrar
+        if (cardText.includes(searchText)) {
+
+            card.style.display = "block";
+
+        }
+
+        // Si no coincide, ocultar
+        else {
+
+            card.style.display = "none";
+
+        }
 
     });
 
-    prevBtn.addEventListener('click', () => {
-
-        slider.scrollBy({
-            left: -380,
-            behavior: 'smooth'
-        });
-
-    });
-
-}
+});
