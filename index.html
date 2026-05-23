@@ -2,39 +2,17 @@
 <html lang="es">
 
 <head>
-
-    <!-- ===================================================== -->
-    <!-- CONFIGURACIÓN -->
-    <!-- ===================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ===================================================== -->
-    <!-- TÍTULO -->
-    <!-- ===================================================== -->
     <title>NieR:Automata Archive</title>
-
-    <!-- ===================================================== -->
-    <!-- FUENTES -->
-    <!-- ===================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Fuente principal -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- ===================================================== -->
-    <!-- CSS -->
-    <!-- ===================================================== -->
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
-<body>
+<body class="index-page">
 
-    <!-- ===================================================== -->
-    <!-- CONTENEDOR PRINCIPAL -->
-    <!-- ===================================================== -->
     <div class="container">
 
         <!-- ================================================= -->
@@ -42,63 +20,29 @@
         <!-- ================================================= -->
         <aside class="sidebar">
 
-            <!-- LOGO -->
             <div class="logo">
-
                 <h1>YoRHa</h1>
-
-                <p>
-                    Archivo Clasificado
-                </p>
-
+                <p>Archivo Clasificado</p>
             </div>
-
-            <!-- ============================================= -->
-            <!-- MENÚ -->
-            <!-- ============================================= -->
+        <!-- ============================================= -->
+        <!-- MENÚ -->
+        <!-- ============================================= -->
             <nav class="nav-menu">
-
                 <ul>
-
-                    <li>
-                        <a href="index.html">
-                            Inicio
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/characters.html">
-                            Personajes
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/weapons.html">
-                            Armas
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/endings.html">
-                            Finales
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/lore.html">
-                            Lore
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/maps.html">
-                            Mapas
-                        </a>
-                    </li>
-
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="pages/characters.html">Personajes</a></li>
+                    <li><a href="pages/weapons.html">Armas</a></li>
+                    <li><a href="pages/endings.html">Finales</a></li>
+                    <li><a href="pages/lore.html">Lore</a></li>
+                    <li><a href="pages/maps.html">Mapas</a></li>
                 </ul>
-
             </nav>
+
+            <div class="sidebar-status">
+                Sistema: Normal<br>
+                Conexión: Activa<br>
+                Unidad: YoRHa
+            </div>
 
         </aside>
 
@@ -107,144 +51,83 @@
         <!-- ================================================= -->
         <main class="main-content">
 
-            <!-- ============================================= -->
             <!-- HEADER -->
-            <!-- ============================================= -->
             <header class="main-header">
-
                 <div class="header-title">
-
-                    <h2>
-                        NieR:Automata
-                    </h2>
-
-                    <p>
-                        Base de datos de inteligencia YoRHa
-                    </p>
-
+                    <h2>NieR:Automata</h2>
+                    <p>Base de datos de inteligencia YoRHa</p>
                 </div>
-
-                <!-- BARRA DE BÚSQUEDA -->
                 <div class="search-box">
-
                     <input type="text" placeholder="Buscar información...">
-
                 </div>
-
             </header>
 
-            <!-- ============================================= -->
             <!-- HERO -->
-            <!-- ============================================= -->
             <section class="hero-section">
-
                 <div class="hero-overlay">
-
-                    <h2>
-                        Bienvenido al Archivo
-                    </h2>
-
+                    <h2>Bienvenido al Archivo</h2>
                     <p>
                         Accede a información sobre unidades YoRHa,
                         armas, registros históricos, máquinas,
                         finales y eventos importantes del universo
                         de NieR:Automata.
                     </p>
-
                 </div>
-
             </section>
 
-            <!-- ============================================= -->
-            <!-- SECCIÓN DESTACADA -->
-            <!-- ============================================= -->
+            <!-- REGISTROS DESTACADOS -->
             <section class="featured-section">
 
-                <h3>
-                    Registros Destacados
-                </h3>
+                <h3>Registros Destacados</h3>
 
-                <!-- GRID -->
                 <div class="card-grid">
 
-                    <!-- CARD -->
                     <article class="info-card">
-
-                        <h4>
-                            Personajes
-                        </h4>
-
-                        <p>
-                            Explora androides, máquinas y entidades
-                            importantes del universo de NieR:Automata.
-                        </p>
-
+                        <div class="character-info">
+                            <h4>Personajes</h4>
+                            <p>Explora androides, máquinas y entidades importantes del universo de NieR:Automata.</p>
+                        </div>
                     </article>
 
-                    <!-- CARD -->
                     <article class="info-card">
-
-                        <h4>
-                            Armas
-                        </h4>
-
-                        <p>
-                            Consulta espadas, lanzas y armas utilizadas
-                            por las unidades YoRHa.
-                        </p>
-
+                        <div class="character-info">
+                            <h4>Armas</h4>
+                            <p>Consulta espadas, lanzas y armas utilizadas por las unidades YoRHa.</p>
+                        </div>
                     </article>
 
-                    <!-- CARD -->
                     <article class="info-card">
-
-                        <h4>
-                            Finales
-                        </h4>
-
-                        <p>
-                            Información sobre todos los finales
-                            principales y alternativos del juego.
-                        </p>
-
+                        <div class="character-info">
+                            <h4>Finales</h4>
+                            <p>Información sobre todos los finales principales y alternativos del juego.</p>
+                        </div>
                     </article>
 
-                    <!-- CARD -->
                     <article class="info-card">
-
-                        <h4>
-                            Lore
-                        </h4>
-
-                        <p>
-                            Descubre la historia, cronología y eventos
-                            del conflicto entre androides y máquinas.
-                        </p>
-
+                        <div class="character-info">
+                            <h4>Lore</h4>
+                            <p>Descubre la historia, cronología y eventos del conflicto entre androides y máquinas.</p>
+                        </div>
                     </article>
 
                 </div>
 
             </section>
 
-            <!-- ============================================= -->
-            <!-- FOOTER -->
-            <!-- ============================================= -->
-            <footer class="footer">
-
-                <p>
-                    NieR:Automata Fan Archive • Proyecto de Wiki
-                </p>
-
-            </footer>
+            <!-- BARRA INFERIOR -->
+            <div class="bottom-bar">
+                <span>NieR:Automata Fan Archive • Proyecto de Wiki</span>
+                <div class="hints">
+                    <span><span class="key">↑↓</span> Navegar</span>
+                    <span><span class="key">↵</span> Confirmar</span>
+                    <span><span class="key">ESC</span> Volver</span>
+                </div>
+            </div>
 
         </main>
 
     </div>
 
-    <!-- ===================================================== -->
-    <!-- JAVASCRIPT -->
-    <!-- ===================================================== -->
     <script src="js/main.js"></script>
 
 </body>

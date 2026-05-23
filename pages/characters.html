@@ -2,39 +2,17 @@
 <html lang="es">
 
 <head>
-
-    <!-- ===================================================== -->
-    <!-- CONFIGURACIÓN -->
-    <!-- ===================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ===================================================== -->
-    <!-- TÍTULO -->
-    <!-- ===================================================== -->
     <title>Personajes | NieR:Automata Archive</title>
-
-    <!-- ===================================================== -->
-    <!-- FUENTES -->
-    <!-- ===================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Fuente principal -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- ===================================================== -->
-    <!-- CSS -->
-    <!-- ===================================================== -->
     <link rel="stylesheet" href="../css/style.css">
-
 </head>
 
-<body>
+<body class="characters-page">
 
-    <!-- ===================================================== -->
-    <!-- CONTENEDOR PRINCIPAL -->
-    <!-- ===================================================== -->
     <div class="container">
 
         <!-- ================================================= -->
@@ -42,63 +20,29 @@
         <!-- ================================================= -->
         <aside class="sidebar">
 
-            <!-- LOGO -->
             <div class="logo">
-
                 <h1>YoRHa</h1>
-
-                <p>
-                    Archivo Clasificado
-                </p>
-
+                <p>Archivo Clasificado</p>
             </div>
-
             <!-- ============================================= -->
             <!-- MENÚ -->
             <!-- ============================================= -->
             <nav class="nav-menu">
-
                 <ul>
-
-                    <li>
-                        <a href="../index.html">
-                            Inicio
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="characters.html">
-                            Personajes
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="weapons.html">
-                            Armas
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="endings.html">
-                            Finales
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="lore.html">
-                            Lore
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="maps.html">
-                            Mapas
-                        </a>
-                    </li>
-
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="characters.html" class="active">Personajes</a></li>
+                    <li><a href="weapons.html">Armas</a></li>
+                    <li><a href="endings.html">Finales</a></li>
+                    <li><a href="lore.html">Lore</a></li>
+                    <li><a href="maps.html">Mapas</a></li>
                 </ul>
-
             </nav>
+
+            <div class="sidebar-status">
+                Sistema: Normal<br>
+                Conexión: Activa<br>
+                Unidad: YoRHa
+            </div>
 
         </aside>
 
@@ -107,276 +51,202 @@
         <!-- ================================================= -->
         <main class="main-content">
 
-            <!-- ============================================= -->
             <!-- HEADER -->
-            <!-- ============================================= -->
             <header class="main-header">
-
                 <div class="header-title">
-
-                    <h2>
-                        Personajes
-                    </h2>
-
-                    <p>
-                        Registro de unidades YoRHa y entidades relevantes
-                    </p>
-
+                    <h2>Personajes</h2>
+                    <p>Registro de unidades YoRHa y entidades relevantes</p>
                 </div>
-
-                <!-- SEARCH -->
                 <div class="search-box">
-
                     <input type="text" placeholder="Buscar personaje...">
-
                 </div>
-
             </header>
 
-            <!-- ============================================= -->
             <!-- HERO -->
-            <!-- ============================================= -->
             <section class="hero-section">
-
                 <div class="hero-overlay">
-
-                    <h2>
-                        Base de Datos de Personajes
-                    </h2>
-
+                    <h2>Base de Datos de Personajes</h2>
                     <p>
                         Información detallada sobre androides, máquinas,
                         aliados y entidades importantes del universo
                         de NieR:Automata.
                     </p>
-
                 </div>
-
             </section>
 
             <!-- ============================================= -->
-            <!-- GRID DE PERSONAJES -->
+            <!-- UNIDADES YORHA -->
             <!-- ============================================= -->
             <section class="featured-section">
 
-                <h3>
-                    Unidades Registradas
-                </h3>
+                <h3>Unidades YoRHa Registradas</h3>
 
-                <!-- GRID -->
                 <div class="card-grid">
 
-                    <!-- ===================================== -->
-                    <!-- CARD PODS -->
-                    <!-- ===================================== -->
+                    <!-- PODS -->
                     <article class="info-card">
-
-                        <!-- IMAGEN -->
                         <div class="character-image">
-
-                            <img src="../assets/images/characters/Pods.jpg" alt="Pods" width="330px">
-
+                            <img src="../assets/images/characters/Pods.jpg" alt="Pods">
                         </div>
-                        <br>
-                        <!-- INFORMACIÓN -->
                         <div class="character-info">
-
-                            <h4>
-                                Pods de Soporte Táctico
-                            </h4>
-
-                            <!-- ETIQUETA -->
-                            <span class="character-tag">
-                                Unidad de Apoyo
-                            </span>
-
-                            <p>
-                                Dispositivos de soporte táctico utilizados por
-                                las unidades YoRHa. Equipados con sistemas de
-                                combate, análisis y asistencia avanzada.
-                            </p>
-
-                            <!-- DATOS -->
+                            <h4>Pods de Soporte Táctico</h4>
+                            <span class="character-tag">Unidad de Apoyo</span>
+                            <p>Dispositivos de soporte táctico utilizados por las unidades YoRHa. Equipados con sistemas
+                                de combate, análisis y asistencia avanzada.</p>
                             <ul class="character-data">
-
-                                <li>
-                                    <strong>Modelos:</strong>
-                                    Pod 042 / Pod 153
-                                </li>
-
-                                <li>
-                                    <strong>Función:</strong>
-                                    Soporte de Combate
-                                </li>
-
+                                <li><strong>Modelos:</strong> Pod 042 / Pod 153</li>
+                                <li><strong>Función:</strong> Soporte de Combate</li>
                             </ul>
-
                         </div>
-
                     </article>
 
-                    <!-- ===================================== -->
-                    <!-- CARD 2B -->
-                    <!-- ===================================== -->
+                    <!-- 2B -->
                     <article class="info-card">
-
-                        <!-- IMAGEN -->
                         <div class="character-image">
-
-                            <img src="../assets/images/characters/2b.jpg" alt="2B" width="330px">
-
+                            <img src="../assets/images/characters/2b.jpg" alt="2B">
                         </div>
-                        <br>
-
-                        <!-- INFORMACIÓN -->
                         <div class="character-info">
-
-                            <h4>
-                                YoRHa No.2 Type B
-                            </h4>
-
-                            <!-- ETIQUETA -->
-                            <span class="character-tag">
-                                Androide de Combate
-                            </span>
-
-                            <p>
-                                Unidad de combate diseñada para operaciones
-                                terrestres y eliminación de amenazas mecánicas.
-                            </p>
-
-                            <!-- DATOS -->
+                            <h4>YoRHa No.2 Type B</h4>
+                            <span class="character-tag">Androide de Combate</span>
+                            <p>Unidad de combate diseñada para operaciones terrestres y eliminación de amenazas
+                                mecánicas.</p>
                             <ul class="character-data">
-
-                                <li>
-                                    <strong>Arma:</strong>
-                                    Virtuous Contract
-                                </li>
-
-                                <li>
-                                    <strong>Afiliación:</strong>
-                                    YoRHa
-                                </li>
-
+                                <li><strong>Arma:</strong> Virtuous Contract</li>
+                                <li><strong>Afiliación:</strong> YoRHa</li>
                             </ul>
-
                         </div>
-
                     </article>
 
-                    <!-- ===================================== -->
-                    <!-- CARD 9S -->
-                    <!-- ===================================== -->
+                    <!-- 9S -->
                     <article class="info-card">
-
-                        <!-- IMAGEN -->
                         <div class="character-image">
-
-                            <img src="../assets/images/characters/9s.jpg" alt="9S" width="330px">
-
+                            <img src="../assets/images/characters/9s.jpg" alt="9S">
                         </div>
-                        <br>
-                        <!-- INFO -->
                         <div class="character-info">
-
-                            <h4>
-                                YoRHa No.9 Type S
-                            </h4>
-
-                            <span class="character-tag">
-                                Androide de Escaneo
-                            </span>
-
-                            <p>
-                                Unidad especializada en análisis táctico,
-                                soporte operativo y hackeo avanzado.
-                            </p>
-
+                            <h4>YoRHa No.9 Type S</h4>
+                            <span class="character-tag">Androide de Escaneo</span>
+                            <p>Unidad especializada en análisis táctico, soporte operativo y hackeo avanzado.</p>
                             <ul class="character-data">
-
-                                <li>
-                                    <strong>Arma:</strong>
-                                    Cruel Oath
-                                </li>
-
-                                <li>
-                                    <strong>Afiliación:</strong>
-                                    YoRHa
-                                </li>
-
+                                <li><strong>Arma:</strong> Cruel Oath</li>
+                                <li><strong>Afiliación:</strong> YoRHa</li>
                             </ul>
-
                         </div>
-
                     </article>
 
-                    <!-- ===================================== -->
-                    <!-- CARD A2 -->
-                    <!-- ===================================== -->
+                    <!-- A2 -->
                     <article class="info-card">
-
-                        <!-- IMAGEN -->
                         <div class="character-image">
-
-                            <img src="../assets/images/characters/a2.jpg" alt="A2" width="330px">
-
+                            <img src="../assets/images/characters/a2.jpg" alt="A2">
                         </div>
-                        <br>
-                        <!-- INFO -->
                         <div class="character-info">
-
-                            <h4>
-                                YoRHa Type A No.2
-                            </h4>
-
-                            <span class="character-tag">
-                                Prototipo de Ataque
-                            </span>
-
-                            <p>
-                                Antigua unidad experimental YoRHa reconocida
-                                por su brutal capacidad ofensiva.
-                            </p>
-
+                            <h4>YoRHa Type A No.2</h4>
+                            <span class="character-tag">Prototipo de Ataque</span>
+                            <p>Antigua unidad experimental YoRHa reconocida por su brutal capacidad ofensiva.</p>
                             <ul class="character-data">
-
-                                <li>
-                                    <strong>Arma:</strong>
-                                    Type-40 Blade
-                                </li>
-
-                                <li>
-                                    <strong>Estado:</strong>
-                                    Desertora
-                                </li>
-
+                                <li><strong>Arma:</strong> Type-40 Blade</li>
+                                <li><strong>Estado:</strong> Desertora</li>
                             </ul>
-
                         </div>
-
                     </article>
+
                 </div>
 
             </section>
 
             <!-- ============================================= -->
-            <!-- FOOTER -->
+            <!-- UNIDADES ENEMIGAS -->
             <!-- ============================================= -->
-            <footer class="footer">
+            <section class="featured-section">
 
-                <p>
-                    NieR:Automata Fan Archive • Base de Datos de Personajes
-                </p>
+                <h3>Unidades Enemigas Registradas</h3>
 
-            </footer>
+                <div class="card-grid">
+
+                    <!-- ADAM -->
+                    <article class="info-card">
+                        <div class="character-image">
+                            <img src="../assets/images/characters/Adam.jpg" alt="Adam">
+                        </div>
+                        <div class="character-info">
+                            <h4>Adam</h4>
+                            <span class="character-tag">Forma de Vida Mecánica</span>
+                            <p>Entidad mecánica evolucionada obsesionada con el conocimiento, la conciencia y la
+                                naturaleza humana.</p>
+                            <ul class="character-data">
+                                <li><strong>Afiliación:</strong> Red de Máquinas</li>
+                                <li><strong>Rol:</strong> Antagonista</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- EVE -->
+                    <article class="info-card">
+                        <div class="character-image">
+                            <img src="../assets/images/characters/eve.jpg" alt="Eve">
+                        </div>
+                        <div class="character-info">
+                            <h4>Eve</h4>
+                            <span class="character-tag">Forma de Vida Mecánica</span>
+                            <p>Unidad vinculada emocionalmente con Adam, caracterizada por su comportamiento agresivo e
+                                inestable.</p>
+                            <ul class="character-data">
+                                <li><strong>Afiliación:</strong> Red de Máquinas</li>
+                                <li><strong>Estado:</strong> Hostil</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- ADAM -->
+                    <article class="info-card">
+                        <div class="character-image">
+                            <img src="../assets/images/characters/Adam.jpg" alt="Adam">
+                        </div>
+                        <div class="character-info">
+                            <h4>Adam</h4>
+                            <span class="character-tag">Forma de Vida Mecánica</span>
+                            <p>Entidad mecánica evolucionada obsesionada con el conocimiento, la conciencia y la
+                                naturaleza humana.</p>
+                            <ul class="character-data">
+                                <li><strong>Afiliación:</strong> Red de Máquinas</li>
+                                <li><strong>Rol:</strong> Antagonista</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <!-- EVE -->
+                    <article class="info-card">
+                        <div class="character-image">
+                            <img src="../assets/images/characters/eve.jpg" alt="Eve">
+                        </div>
+                        <div class="character-info">
+                            <h4>Eve</h4>
+                            <span class="character-tag">Forma de Vida Mecánica</span>
+                            <p>Unidad vinculada emocionalmente con Adam, caracterizada por su comportamiento agresivo e
+                                inestable.</p>
+                            <ul class="character-data">
+                                <li><strong>Afiliación:</strong> Red de Máquinas</li>
+                                <li><strong>Estado:</strong> Hostil</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- BARRA INFERIOR -->
+            <div class="bottom-bar">
+                <span>NieR:Automata Fan Archive • Base de Datos de Personajes</span>
+                <div class="hints">
+                    <span><span class="key">↑↓</span> Navegar</span>
+                    <span><span class="key">↵</span> Confirmar</span>
+                    <span><span class="key">ESC</span> Volver</span>
+                </div>
+            </div>
 
         </main>
 
     </div>
 
-    <!-- ===================================================== -->
-    <!-- JAVASCRIPT -->
-    <!-- ===================================================== -->
     <script src="../js/main.js"></script>
 
 </body>
