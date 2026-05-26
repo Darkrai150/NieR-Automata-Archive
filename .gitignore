@@ -1,6 +1,7 @@
 # Archivos del sistema
 .DS_Store
 Thumbs.db
+.gitignore
 
 # VS Code
 .vscode/

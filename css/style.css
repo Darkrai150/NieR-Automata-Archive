@@ -1,46 +1,74 @@
 /* ========================================================= */
 /* RESET + VARIABLES                                         */
 /* ========================================================= */
+/* Elimina márgenes y padding por defecto en todos los elementos */
 *,
 *::before,
 *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* El padding no afecta el tamaño total del elemento */
 }
 
+/* Colores y valores reutilizables en todo el CSS */
 :root {
-    --bg: #d6d0c0;
-    --bg-dark: #c8c2b0;
-    --bg-darker: #bbb5a4;
-    --panel: #ccc6b6;
-    --card: #d6d0c0;
-    --card-hover: #cac4b4;
-    --selected: #1a1a1a;
-    --selected-text: #d6d0c0;
-    --text: #1a1a1a;
-    --text-dim: #666660;
-    --text-muted: #1a1a1a;
-    --border: #a8a290;
-    --border-light: #bbb5a4;
+    --bg: #050505;
+    /* Fondo principal negro profundo */
+    --bg-dark: #0b0b0b;
+    /* Sidebar y header */
+    --bg-darker: #020202;
+    /* Barra inferior y zonas oscuras */
+    --panel: #101010;
+    /* Hero y paneles */
+    --card: #111111;
+    /* Tarjetas */
+    --card-hover: #181818;
+    /* Hover de tarjetas */
+    --selected: #d4b06a;
+    /* Elemento activo */
+    --selected-text: #050505;
+    /* Texto sobre selección */
+    --text: #d8d2c4;
+    /* Texto principal */
+    --text-dim: #8d8778;
+    /* Texto secundario */
+    --text-muted: #5f5a50;
+    /* Texto terciario */
+    --border: #1e1e1e;
+    /* Bordes */
+    --border-light: #2b2b2b;
+    /* Bordes suaves */
+    --accent: #d4b06a;
+    /* Dorado YoRHa */
+    --accent-soft: rgba(212, 176, 106, 0.12);
+    /* Glow suave */
+    --accent-strong: rgba(212, 176, 106, 0.4);
+    /* Glow fuerte */
     --font: 'Orbitron', sans-serif;
+    /* Fuente principal */
 }
 
 /* ========================================================= */
 /* SCROLLBAR                                                 */
 /* ========================================================= */
+
+/* Ancho de la barra de scroll */
 ::-webkit-scrollbar {
     width: 4px;
 }
 
+/* Fondo del carril del scroll */
 ::-webkit-scrollbar-track {
     background: var(--bg);
 }
 
+/* Color del pulgar del scroll */
 ::-webkit-scrollbar-thumb {
     background: var(--border);
 }
 
+/* Color del pulgar al pasar el cursor */
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text);
 }
@@ -48,52 +76,80 @@
 /* ========================================================= */
 /* BASE                                                      */
 /* ========================================================= */
+
+/* Estilos globales del documento */
 body {
     font-family: var(--font);
-    background-color: var(--bg);
+    background:
+        radial-gradient(circle at top,
+            rgba(212, 176, 106, 0.04),
+            transparent 30%),
+        var(--bg);
     color: var(--text);
     min-height: 100vh;
+    /* Ocupa al menos toda la altura de la pantalla */
     overflow-x: hidden;
+    /* Evita scroll horizontal */
     font-size: 14px;
     line-height: 1.6;
 }
 
-/* patrón de puntos sutil tipo el juego */
+/* Patrón de puntos sobre toda la página, fijo al hacer scroll */
 body::before {
     content: '';
     position: fixed;
     inset: 0;
+    /* Cubre toda la pantalla */
     z-index: 0;
+    /* Detrás de todo el contenido */
     pointer-events: none;
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    /* No interfiere con clics */
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
     background-size: 6px 6px;
+    /* Tamaño de la cuadrícula de puntos */
 }
 
 /* ========================================================= */
 /* LAYOUT                                                    */
 /* ========================================================= */
+
+/* Contenedor principal — sidebar + contenido en fila */
 .container {
     display: flex;
     min-height: 100vh;
     position: relative;
     z-index: 1;
+    /* Sobre el patrón de puntos del body::before */
 }
 
+/* Área de contenido principal a la derecha del sidebar */
 .main-content {
-    margin-left: 220px;
-    width: calc(100% - 220px);
+    margin-left: 230px;
+    /* Deja espacio para el sidebar fijo */
+    width: calc(100% - 230px);
+    /* Ocupa el resto del ancho */
     padding: 0;
     display: flex;
     flex-direction: column;
+    background-size: cover;
+    /* La imagen de fondo cubre toda el área */
+    background-position: center;
+    background-attachment: fixed;
+    /* Efecto parallax — la imagen no se mueve al hacer scroll */
 }
 
 /* ========================================================= */
 /* SIDEBAR                                                   */
 /* ========================================================= */
+
+/* Barra lateral fija a la izquierda */
 .sidebar {
-    width: 220px;
-    background-color: var(--bg-dark);
-    border-right: 1px solid var(--border);
+    width: 230px;
+    background:
+        linear-gradient(to bottom,
+            rgba(12, 12, 12, 0.96),
+            rgba(5, 5, 5, 0.98));
+    border-right: 1px solid rgba(212, 176, 106, 0.08);
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -103,45 +159,118 @@ body::before {
     height: 100vh;
     overflow-y: auto;
     z-index: 100;
+    backdrop-filter: blur(14px);
+    box-shadow:
+        0 0 40px rgba(0, 0, 0, 0.9),
+        inset -1px 0 0 rgba(212, 176, 106, 0.06);
 }
 
-/* LOGO */
+/* Área del logo y nombre del sitio */
 .logo {
-    padding: 20px 20px 16px;
-    border-bottom: 1px solid var(--border);
+    position: relative;
+    padding: 40px 20px;
+    min-height: 198px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(212,176,106,0.08);
+    /* IMAGEN DE FONDO */
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.72),
+            rgba(0,0,0,0.88)
+        ),
+        url('../assets/images/logos/LogoN1.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
+/* Líneas futuristas */
+.logo::before {
+
+    content: '';
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(212,176,106,0.03) 3px,
+            rgba(212,176,106,0.03) 4px
+        );
+
+    pointer-events: none;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 1px;
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(212,176,106,0.45),
+            transparent
+        );
+}
+
+/* Nombre YoRHa */
 .logo h1 {
-    font-size: 1.6rem;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 2rem;
     font-weight: 700;
-    color: var(--text);
-    letter-spacing: 6px;
+    color: var(--accent);
+    letter-spacing: 10px;
     line-height: 1;
-    margin-bottom: 6px;
+    margin-bottom: 14px;
+    text-shadow:
+        0 0 20px rgba(212,176,106,0.18);
 }
 
-.logo p {
-    color: var(--text-dim);
-    font-size: 0.55rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
+/* Imagen del logo YoRHa */
 .logo-img {
-    width: 100%;
-    max-width: 120px;
+    width: 72%;
+    max-width: 140px;
     display: block;
-    margin: 0 auto 8px;
-    filter: grayscale(1) brightness(0.3);
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
+    margin: 0 auto 14px;
+    opacity: 0.75;
+    filter:
+        grayscale(1)
+        brightness(1.2)
+        contrast(1.05);
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease,
+        filter 0.4s ease;
 }
 
-.logo-img:hover {
-    opacity: 1;
+/* Subtítulo "Archivo Clasificado" */
+.logo p {
+    position: relative;
+    z-index: 1;
+    color: rgba(216,210,196,0.7);
+    font-size: 0.55rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-align: center;
 }
 
-/* NAV */
+/* Contenedor del menú de navegación */
 .nav-menu {
     flex: 1;
     padding: 8px 0;
@@ -153,49 +282,69 @@ body::before {
     flex-direction: column;
 }
 
+/* Cada enlace del menú */
 .nav-menu a {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     text-decoration: none;
     color: var(--text-dim);
-    padding: 10px 20px;
-    font-size: 0.65rem;
-    letter-spacing: 2.5px;
+    padding: 14px 22px;
+    font-size: 0.62rem;
+    letter-spacing: 3px;
     text-transform: uppercase;
     border-left: 2px solid transparent;
-    transition: background 0.15s ease, color 0.15s ease;
+    position: relative;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        padding-left 0.25s ease;
 }
 
-/* bullet cuadrado tipo el juego */
+/* Bullet cuadrado ■ antes de cada item del menú */
 .nav-menu a::before {
     content: '■';
-    font-size: 0.5rem;
+    font-size: 1rem;
     color: var(--border);
     flex-shrink: 0;
     transition: color 0.15s ease;
 }
 
+/* Estado hover */
 .nav-menu a:hover {
-    background: rgba(0, 0, 0, 0.06);
-    color: var(--text);
+    background:
+        linear-gradient(
+            to right,
+            rgba(212,176,106,0.08),
+            transparent
+        );
+    color: var(--accent);
+    padding-left: 28px;
 }
 
 .nav-menu a:hover::before {
     color: var(--text-dim);
 }
 
+/* Estado activo */
 .nav-menu a.active {
-    background: var(--selected);
-    color: var(--selected-text);
-    border-left-color: var(--selected);
+    background:
+        linear-gradient(
+            to right,
+            rgba(212,176,106,0.18),
+            rgba(212,176,106,0.02)
+        );
+    color: var(--accent);
+    border-left-color: var(--accent);
+    box-shadow:
+        inset 0 0 12px rgba(212,176,106,0.08);
 }
 
 .nav-menu a.active::before {
     color: var(--selected-text);
 }
 
-/* estado del sistema al fondo del sidebar */
+/* Bloque de estado del sistema al fondo del sidebar */
 .sidebar-status {
     padding: 12px 20px;
     border-top: 1px solid var(--border);
@@ -209,109 +358,235 @@ body::before {
 /* ========================================================= */
 /* HEADER                                                    */
 /* ========================================================= */
+
+/* Barra superior con título y buscador */
 .main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 16px;
-    padding: 20px 32px 16px;
-    border-bottom: 1px solid var(--border);
-    background: var(--bg-dark);
     position: sticky;
     top: 0;
     z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 73px 36px;
+    overflow: hidden;
+    border-bottom:
+        1px solid rgba(212,176,106,0.08);
+    /* FONDO */
+    background:
+    linear-gradient(
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.88)
+    ),
+    radial-gradient(
+        circle at center,
+        rgba(212,176,106,0.08),
+        transparent 70%
+    ),
+    url('../assets/images/fondos/Fondo1.png');
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(12px);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.45);
 }
 
+/* Líneas futuristas */
+.main-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(212,176,106,0.025) 3px,
+            rgba(212,176,106,0.025) 4px
+        );
+    pointer-events: none;
+}
+
+/* Línea inferior decorativa */
+.main-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(212,176,106,0.5),
+            transparent
+        );
+}
+
+.header-title {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Título principal */
 .header-title h2 {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     font-weight: 700;
-    color: var(--text);
-    letter-spacing: 4px;
+    color: var(--accent);
+    letter-spacing: 6px;
     text-transform: uppercase;
-    line-height: 1.1;
+    line-height: 1;
+    text-shadow:
+        0 0 18px rgba(212,176,106,0.18);
 }
 
+/* Subtítulo */
 .header-title p {
+
     color: var(--text-dim);
-    font-size: 0.6rem;
-    letter-spacing: 2.5px;
-    margin-top: 5px;
+
+    font-size: 0.58rem;
+
+    letter-spacing: 4px;
+
     text-transform: uppercase;
+
+    opacity: 0.85;
 }
 
+/* Logo horizontal */
 .header-logo {
-    max-height: 40px;
-    width: auto;
+    max-height: 90px;
+    width: fit-content;
     display: block;
-    filter: grayscale(1) brightness(0.2);
-    opacity: 0.8;
+    margin-bottom: 8px;
+    opacity: 0.82;
+    filter:
+        grayscale(1)
+        brightness(1.2)
+        contrast(1.05);
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease,
+        filter 0.4s ease;
 }
 
-/* SEARCH */
+.header-logo:hover {
+    opacity: 1;
+    transform: scale(1.02);
+    filter:
+        grayscale(0)
+        brightness(1.3);
+}
+
+/* Contenedor del campo de búsqueda */
 .search-box {
     position: relative;
 }
 
+/* Símbolo > antes del input como decoración */
 .search-box::before {
     content: '>';
     position: absolute;
-    left: 10px;
+    left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-dim);
-    font-size: 0.75rem;
+    color: var(--accent);
+    font-size: 0.7rem;
     pointer-events: none;
-    transition: color 0.2s;
+    z-index: 2;
+    opacity: 0.7;
 }
 
+/* Cambia el > a oscuro cuando el input está enfocado */
 .search-box:focus-within::before {
     color: var(--text);
 }
 
+/* Campo de búsqueda */
 .search-box input {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--border);
-    padding: 8px 10px 8px 26px;
+
+    background:
+        rgba(255,255,255,0.02);
+
+    border:
+        1px solid rgba(212,176,106,0.08);
+
+    padding: 12px 14px 12px 32px;
+
     color: var(--text);
-    width: 240px;
+
+    width: 260px;
+
     outline: none;
+
     font-family: var(--font);
-    font-size: 0.6rem;
-    letter-spacing: 1.5px;
-    transition: border-color 0.2s ease;
+
+    font-size: 0.58rem;
+
+    letter-spacing: 2px;
+
+    backdrop-filter: blur(6px);
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .search-box input::placeholder {
     color: var(--text-muted);
 }
 
+/* Focus del buscador */
 .search-box input:focus {
-    border-bottom-color: var(--text);
+
+    border-color:
+        rgba(212,176,106,0.45);
+
+    background:
+        rgba(212,176,106,0.04);
+
+    box-shadow:
+        0 0 18px rgba(212,176,106,0.08);
 }
 
 /* ========================================================= */
 /* HERO                                                      */
 /* ========================================================= */
+
+/* Sección destacada debajo del header */
 .hero-section {
     background-color: var(--panel);
     border-bottom: 1px solid var(--border);
     padding: 48px 32px;
     position: relative;
     overflow: hidden;
+    /* Imagen de fondo — aplica a todas las páginas */
+    background-image: url('../assets/images/fondos/Fondo2.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 280px;
 }
 
-/* patrón de líneas horizontales */
+/* Líneas horizontales sutiles sobre el hero */
 .hero-section::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 0, 0, 0.03) 3px, rgba(0, 0, 0, 0.03) 4px);
+    /* Overlay beige semitransparente para que el texto sea legible sobre la imagen */
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.82)) !important;
     pointer-events: none;
 }
 
-/* esquina decorativa */
+/* Esquina decorativa inferior derecha */
 .hero-section::after {
     content: '';
     position: absolute;
@@ -325,21 +600,24 @@ body::before {
     pointer-events: none;
 }
 
+/* Contenedor del texto del hero */
 .hero-overlay {
     max-width: 680px;
     position: relative;
     z-index: 1;
 }
 
+/* Etiqueta "[ DATOS CLASIFICADOS ]" automática */
 .hero-overlay::before {
     content: '[ DATOS CLASIFICADOS ]';
     display: block;
-    font-size: 0.55rem;
+    font-size: 0.60rem;
     letter-spacing: 4px;
-    color: var(--text-muted);
+    color: var(--text);
     margin-bottom: 14px;
 }
 
+/* Título principal del hero */
 .hero-overlay h2 {
     font-size: 2rem;
     font-weight: 700;
@@ -350,6 +628,7 @@ body::before {
     line-height: 1.2;
 }
 
+/* Texto descriptivo del hero */
 .hero-overlay p {
     line-height: 1.9;
     color: var(--text-dim);
@@ -358,34 +637,27 @@ body::before {
     max-width: 520px;
 }
 
+/* Logo de NieR:Automata dentro del hero */
 .hero-logo {
     display: block;
     max-width: 300px;
     margin-bottom: 20px;
-    filter: grayscale(1) brightness(0.2);
+    filter:
+        grayscale(1) brightness(1.2) contrast(1.1);
     opacity: 0.85;
-}
-
-/* imagen de fondo solo en index */
-.hero-section {
-    background-image: url('../assets/images/fondos/RuinedCity.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: 300px;
-}
-
-.hero-section::before {
-    background: rgba(199, 185, 156, 0.82) !important;
 }
 
 /* ========================================================= */
 /* SECCIÓN + GRID                                            */
 /* ========================================================= */
+
+/* Sección que contiene el título y la grid de tarjetas */
 .featured-section {
     padding: 28px 32px;
     flex: 1;
 }
 
+/* Título de sección con líneas decorativas a los lados */
 .featured-section h3 {
     margin-bottom: 20px;
     font-size: 0.65rem;
@@ -397,6 +669,7 @@ body::before {
     gap: 12px;
 }
 
+/* Línea corta a la izquierda del título */
 .featured-section h3::before {
     content: '';
     display: inline-block;
@@ -406,121 +679,153 @@ body::before {
     flex-shrink: 0;
 }
 
+/* Línea que se extiende hasta la derecha */
 .featured-section h3::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: var(--border);
+    background: var(--text);
 }
 
-/* grid con separadores tipo tabla */
+/* Grid de tarjetas — ancho fijo para que no se estiren si hay pocas */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 315px));
     gap: 10px;
-    background: var(--border);
-    border: 10px solid var(--border);
+    justify-content: center;
+    /* Alinea las tarjetas a la izquierda si no llenan toda la fila */
 }
 
 /* ========================================================= */
 /* CARDS                                                     */
 /* ========================================================= */
+
+/* Tarjeta individual */
 .info-card {
+    border: 5px solid var(--text-dim);
     background: var(--card);
     padding: 0;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: background 0.15s ease;
+    box-shadow:
+        0 0 0 rgba(0, 0, 0, 0),
+        0 10px 30px rgba(0, 0, 0, 0.45);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
 }
 
+/* Oscurece la tarjeta al pasar el cursor */
 .info-card:hover {
     background: var(--card-hover);
+
+    border-color: var(--accent-strong);
+
+    box-shadow:
+        0 0 20px rgba(212, 176, 106, 0.08),
+        0 10px 30px rgba(0, 0, 0, 0.6);
+
+    transform: translateY(-4px);
 }
 
+/* Fondo negro cuando la tarjeta está seleccionada */
 .info-card.selected,
 .info-card:focus {
     background: var(--selected);
     outline: none;
 }
 
-/* imagen */
+/* Contenedor de la imagen del personaje */
 .character-image {
+    border-bottom: 5px solid var(--border);
     width: 100%;
     overflow: hidden;
-    border-bottom: 1px solid var(--border);
     aspect-ratio: 3 / 4;
+    /* Proporción portrait para personajes */
     background-color: var(--panel);
     position: relative;
 }
 
+/* Proporción landscape para armas y mapas */
 .weapons-page .character-image,
 .maps-page .character-image {
     aspect-ratio: 16 / 9;
 }
 
+/* Imagen en blanco y negro por defecto */
 .character-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top center;
     display: block;
-    filter: grayscale(70%) contrast(1.05);
+    filter: grayscale(50%) contrast(1.05);
     transition: transform 0.4s ease, filter 0.3s ease;
 }
 
+/* Al hacer hover: zoom sutil y regresa el color */
 .info-card:hover .character-image img {
     transform: scale(1.03);
     filter: grayscale(0%) contrast(1);
 }
 
-/* contenido */
+/* Área de texto dentro de la tarjeta */
 .character-info {
     padding: 16px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-/* título con bullet cuadrado tipo el juego */
+/* Nombre del personaje/arma/lugar */
 .info-card h4 {
     color: var(--text);
-    font-size: 1.25rem;
+    font-size: 0.65rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     line-height: 1.3;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-/* bullet cuadrado en cards también */
+/* Bullet ■ antes del nombre */
 .info-card h4::before {
     content: '■';
-    font-size: 0.75rem;
+    font-size: 1rem;
     color: var(--text-dim);
     flex-shrink: 0;
 }
 
+/* Nombre e ícono en blanco cuando la tarjeta está seleccionada */
 .info-card.selected h4,
 .info-card.selected h4::before {
     color: var(--selected-text);
 }
 
+/* Texto descriptivo de la tarjeta */
 .info-card p {
     color: var(--text-dim);
     line-height: 1.8;
-    font-size: 1rem;
+    font-size: 0.65rem;
     letter-spacing: 0.5px;
     margin-bottom: 14px;
+    flex: 1;
+    /* Empuja los datos al fondo de la card */
 }
 
 .info-card.selected p {
     color: #a8a290;
 }
 
-/* tag */
+/* Etiqueta de categoría — ej: "Androide de Combate" */
 .character-tag {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.62rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--text-dim);
@@ -536,27 +841,31 @@ body::before {
     color: #a8a290;
 }
 
-/* datos */
+/* Lista de datos — arma, afiliación, etc. */
 .character-data {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 5px;
     border-top: 1px solid var(--border-light);
+    /* Línea separadora sobre los datos */
     padding-top: 12px;
     margin-top: 2px;
+    width: 100%;
 }
 
+/* Cada fila de datos — clave a la izquierda, valor a la derecha */
 .character-data li {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     gap: 8px;
-    font-size: 0.75rem;
+    font-size: 0.58rem;
     letter-spacing: 1px;
     color: var(--text-dim);
 }
 
+/* Clave en negrita y color oscuro */
 .character-data li strong {
     color: var(--text);
     font-weight: 500;
@@ -564,6 +873,7 @@ body::before {
     flex-shrink: 0;
 }
 
+/* Versiones en blanco/gris cuando la tarjeta está seleccionada */
 .info-card.selected .character-data {
     border-top-color: rgba(255, 255, 255, 0.1);
 }
@@ -579,6 +889,8 @@ body::before {
 /* ========================================================= */
 /* BARRA INFERIOR                                            */
 /* ========================================================= */
+
+/* Barra al fondo de cada página con hints de navegación */
 .bottom-bar {
     padding: 8px 32px;
     border-top: 1px solid var(--border);
@@ -592,6 +904,7 @@ body::before {
     text-transform: uppercase;
 }
 
+/* Grupo de hints de teclado */
 .bottom-bar .hints {
     display: flex;
     gap: 16px;
@@ -603,6 +916,7 @@ body::before {
     gap: 5px;
 }
 
+/* Tecla con fondo negro — ↑↓ ↵ ESC */
 .bottom-bar .hints .key {
     background: var(--selected);
     color: var(--selected-text);
@@ -614,6 +928,7 @@ body::before {
 /* ========================================================= */
 /* FOOTER                                                    */
 /* ========================================================= */
+
 .footer {
     padding: 16px 32px 12px;
     border-top: 1px solid var(--border);
@@ -626,6 +941,7 @@ body::before {
     background: var(--bg-dark);
 }
 
+/* Línea corta centrada sobre el footer */
 .footer::before {
     content: '';
     position: absolute;
@@ -640,6 +956,8 @@ body::before {
 /* ========================================================= */
 /* RESPONSIVE                                                */
 /* ========================================================= */
+
+/* Tablet — sidebar pasa a ser horizontal arriba */
 @media (max-width: 900px) {
     .sidebar {
         position: relative;
@@ -701,6 +1019,7 @@ body::before {
         grid-template-columns: 1fr 1fr;
     }
 
+    /* 2 columnas en tablet */
     .bottom-bar {
         flex-direction: column;
         gap: 6px;
@@ -708,6 +1027,7 @@ body::before {
     }
 }
 
+/* Móvil — una sola columna */
 @media (max-width: 480px) {
     .hero-section {
         padding: 24px 16px;
@@ -725,4 +1045,6 @@ body::before {
     .card-grid {
         grid-template-columns: 1fr;
     }
+
+    /* 1 columna en móvil */
 }

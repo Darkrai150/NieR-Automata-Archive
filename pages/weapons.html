@@ -2,347 +2,626 @@
 <html lang="es">
 
 <head>
-
-    <!-- ===================================================== -->
-    <!-- CONFIGURACIÓN -->
-    <!-- ===================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ===================================================== -->
-    <!-- TÍTULO -->
-    <!-- ===================================================== -->
     <title>Armas | NieR:Automata Archive</title>
-
-    <!-- ===================================================== -->
-    <!-- FUENTES -->
-    <!-- ===================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Fuente principal -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- ===================================================== -->
-    <!-- CSS -->
-    <!-- ===================================================== -->
     <link rel="stylesheet" href="../css/style.css">
-
 </head>
 
-<body>
+<body class="weapons-page">
+<div class="container">
 
-    <!-- ===================================================== -->
-    <!-- CONTENEDOR PRINCIPAL -->
-    <!-- ===================================================== -->
-    <div class="container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h1>YoRHa</h1>
+            <p>Archivo Clasificado</p>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="characters.html">Personajes</a></li>
+                <li><a href="weapons.html" class="active">Armas</a></li>
+                <li><a href="endings.html">Finales</a></li>
+                <li><a href="lore.html">Lore</a></li>
+                <li><a href="maps.html">Mapas</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-status">
+            Sistema: Normal<br>
+            Conexión: Activa<br>
+            Unidad: YoRHa
+        </div>
+    </aside>
 
-        <!-- ================================================= -->
-        <!-- SIDEBAR -->
-        <!-- ================================================= -->
-        <aside class="sidebar">
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
 
-            <div class="logo">
-                <h1>YoRHa</h1>
-                <p>Archivo Clasificado</p>
+        <!-- HEADER -->
+        <header class="main-header">
+            <div class="header-title">
+                <h2>Armas</h2>
+                <p>Registro de armamento utilizado por las unidades YoRHa</p>
             </div>
-            <!-- ============================================= -->
-            <!-- MENÚ -->
-            <!-- ============================================= -->
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="characters.html">Personajes</a></li>
-                    <li><a href="weapons.html" class="active">Armas</a></li>
-                    <li><a href="endings.html">Finales</a></li>
-                    <li><a href="lore.html">Lore</a></li>
-                    <li><a href="maps.html">Mapas</a></li>
-                </ul>
-            </nav>
-
-            <div class="sidebar-status">
-                Sistema: Normal<br>
-                Conexión: Activa<br>
-                Unidad: YoRHa
+            <div class="search-box">
+                <input type="text" placeholder="Buscar arma...">
             </div>
-
-        </aside>
-        <!-- ================================================= -->
-        <!-- CONTENIDO PRINCIPAL -->
-        <!-- ================================================= -->
-        <main class="main-content">
-
-            <!-- ============================================= -->
-            <!-- HEADER -->
-            <!-- ============================================= -->
-            <header class="main-header">
-
-                <div class="header-title">
-
-                    <h2>
-                        Armas
-                    </h2>
-
-                    <p>
-                        Registro de armamento utilizado por las unidades YoRHa
-                    </p>
-
-                </div>
-
-                <!-- SEARCH -->
-                <div class="search-box">
-
-                    <input type="text" placeholder="Buscar arma...">
-
-                </div>
-
-            </header>
-
-            <!-- ============================================= -->
-            <!-- HERO -->
-            <!-- ============================================= -->
-            <section class="hero-section">
-
-                <div class="hero-overlay">
-
-                    <h2>
-                        Base de Datos de Armas
-                    </h2>
-
-                    <p>
-                        Consulta información detallada sobre espadas,
-                        lanzas, guanteletes y armas especiales utilizadas
-                        durante las operaciones de combate.
-                    </p>
-
-                </div>
-
-            </section>
-
-            <!-- ============================================= -->
-            <!-- GRID DE ARMAS -->
-            <!-- ============================================= -->
-            <section class="featured-section">
-
-                <h3>
-                    Armamento Registrado
-                </h3>
-
-                <!-- GRID -->
-                <div class="card-grid">
-
-                    <!-- ===================================== -->
-                    <!-- VIRTUOUS CONTRACT -->
-                    <!-- ===================================== -->
-                    <article class="info-card">
-
-                        <!-- IMAGEN -->
-                        <div class="character-image">
-
-                            <img src="../assets/images/weapons/virtuous-contract.jpg" alt="Virtuous Contract"
-                                width="330px">
-
-                        </div>
-
-                        <!-- INFORMACIÓN -->
-                        <div class="character-info">
-
-                            <h4>
-                                Virtuous Contract
-                            </h4>
-
-                            <!-- ETIQUETA -->
-                            <span class="character-tag">
-                                Espada Ligera
-                            </span>
-
-                            <p>
-                                Katana utilizada por 2B durante las operaciones
-                                YoRHa. Reconocida por su diseño elegante y
-                                equilibrio en combate.
-                            </p>
-
-                            <!-- DATOS -->
-                            <ul class="character-data">
-
-                                <li>
-                                    <strong>Usuario:</strong>
-                                    2B
-                                </li>
-
-                                <li>
-                                    <strong>Tipo:</strong>
-                                    Katana
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </article>
-
-                    <!-- ===================================== -->
-                    <!-- CRUEL OATH -->
-                    <!-- ===================================== -->
-                    <article class="info-card">
-
-                        <!-- IMAGEN -->
-                        <div class="character-image">
-
-                            <img src="../assets/images/weapons/cruel-oath.jpg" alt="Cruel Oath" width="330px">
-
-                        </div>
-
-                        <!-- INFORMACIÓN -->
-                        <div class="character-info">
-
-                            <h4>
-                                Cruel Oath
-                            </h4>
-
-                            <span class="character-tag">
-                                Espada Ligera
-                            </span>
-
-                            <p>
-                                Arma principal de 9S diseñada para operaciones
-                                rápidas y soporte táctico en combate.
-                            </p>
-
-                            <ul class="character-data">
-
-                                <li>
-                                    <strong>Usuario:</strong>
-                                    9S
-                                </li>
-
-                                <li>
-                                    <strong>Tipo:</strong>
-                                    Katana
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </article>
-
-                    <!-- ===================================== -->
-                    <!-- TYPE-40 BLADE -->
-                    <!-- ===================================== -->
-                    <article class="info-card">
-
-                        <!-- IMAGEN -->
-                        <div class="character-image">
-
-                            <img src="../assets/images/weapons/type-40-blade.jpg" alt="Type-40 Blade" width="330px">
-
-                        </div>
-
-                        <!-- INFORMACIÓN -->
-                        <div class="character-info">
-
-                            <h4>
-                                Type-40 Blade
-                            </h4>
-
-                            <span class="character-tag">
-                                Espada Pesada
-                            </span>
-
-                            <p>
-                                Arma militar desarrollada para unidades YoRHa
-                                avanzadas con gran capacidad ofensiva.
-                            </p>
-
-                            <ul class="character-data">
-
-                                <li>
-                                    <strong>Usuario:</strong>
-                                    A2
-                                </li>
-
-                                <li>
-                                    <strong>Tipo:</strong>
-                                    Espada Pesada
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </article>
-
-                    <!-- ===================================== -->
-                    <!-- DEMON'S CRY -->
-                    <!-- ===================================== -->
-                    <article class="info-card">
-
-                        <!-- IMAGEN -->
-                        <div class="character-image">
-
-                            <img src="../assets/images/weapons/demons-cry.jpg" alt="Demon's Cry" width="330px">
-
-                        </div>
-
-                        <!-- INFORMACIÓN -->
-                        <div class="character-info">
-
-                            <h4>
-                                Demon's Cry
-                            </h4>
-
-                            <span class="character-tag">
-                                Guanteletes
-                            </span>
-
-                            <p>
-                                Arma de combate cuerpo a cuerpo creada para
-                                ataques rápidos y estilos ofensivos agresivos.
-                            </p>
-
-                            <ul class="character-data">
-
-                                <li>
-                                    <strong>Categoría:</strong>
-                                    Guanteletes
-                                </li>
-
-                                <li>
-                                    <strong>Especialidad:</strong>
-                                    Combate Cercano
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </section>
-
-            <!-- ============================================= -->
-            <!-- FOOTER -->
-            <!-- ============================================= -->
-            <footer class="footer">
-
-                <p>
-                    NieR:Automata Fan Archive • Base de Datos de Armas
-                </p>
-
-            </footer>
-
-        </main>
-
-    </div>
-
-    <!-- ===================================================== -->
-    <!-- JAVASCRIPT -->
-    <!-- ===================================================== -->
-    <script src="../js/main.js"></script>
-
+        </header>
+
+        <!-- HERO -->
+        <section class="hero-section">
+            <div class="hero-overlay">
+                <h2>Base de Datos de Armas</h2>
+                <p>Consulta información detallada sobre espadas, lanzas, guanteletes y armas especiales utilizadas durante las operaciones de combate.</p>
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- ESPADAS PEQUEÑAS                              -->
+        <!-- ============================================= -->
+        <section class="featured-section">
+            <h3>Espadas Pequeñas</h3>
+            <div class="card-grid">
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Contrato_Virtuoso.jpg" alt="Contrato Virtuoso">
+                    </div>
+                    <div class="character-info">
+                        <h4>Contrato Virtuoso</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Usuario:</strong> 2B</li>
+                            <li><strong>Tipo:</strong> Katana</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Azote_de_Bestias.jpg" alt="Azote de Bestias">
+                    </div>
+                    <div class="character-info">
+                        <h4>Azote de Bestias</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espada Ligera</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Señor_Antiguo.jpg" alt="Señor Antiguo">
+                    </div>
+                    <div class="character-info">
+                        <h4>Señor Antiguo</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espada Ligera</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Espada_Mecanica.jpg" alt="Espada Mecánica">
+                    </div>
+                    <div class="character-info">
+                        <h4>Espada Mecánica</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espada Ligera</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Porra_de_Cipres.jpg" alt="Porra de Ciprés">
+                    </div>
+                    <div class="character-info">
+                        <h4>Porra de Ciprés</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espada Ligera</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Espada_Tipo_40.jpg" alt="Espada Tipo 40">
+                    </div>
+                    <div class="character-info">
+                        <h4>Espada Tipo 40</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espada Ligera</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Espada_Tipo_3.jpg" alt="Espada Tipo 3">
+                    </div>
+                    <div class="character-info">
+                        <h4>Espada Tipo 3</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espada Ligera</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Ex_Machina.jpg" alt="Ex Machina">
+                    </div>
+                    <div class="character-info">
+                        <h4>Ex Machina</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espada Ligera</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Juramento_Cruel.jpg" alt="Juramento Cruel">
+                    </div>
+                    <div class="character-info">
+                        <h4>Juramento Cruel</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Usuario:</strong> 9S</li>
+                            <li><strong>Tipo:</strong> Katana</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Fe.jpg" alt="Fe">
+                    </div>
+                    <div class="character-info">
+                        <h4>Fe</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espada Ligera</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Hoja_de_YoRHa.jpg" alt="Hoja de YoRHa">
+                    </div>
+                    <div class="character-info">
+                        <h4>Hoja de YoRHa</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espada Ligera</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Daga_de_Fenix.jpg" alt="Daga de Fénix">
+                    </div>
+                    <div class="character-info">
+                        <h4>Daga de Fénix</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espada Ligera</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Tuberia_de_Hierro.jpg" alt="Tubería de Hierro">
+                    </div>
+                    <div class="character-info">
+                        <h4>Tubería de Hierro</h4>
+                        <span class="character-tag">Espada Ligera</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espada Ligera</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- ESPADONES                                     -->
+        <!-- ============================================= -->
+        <section class="featured-section">
+            <h3>Espadones</h3>
+            <div class="card-grid">
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Señor_de_las_Bestias.jpg" alt="Señor de las Bestias">
+                    </div>
+                    <div class="character-info">
+                        <h4>Señor de las Bestias</h4>
+                        <span class="character-tag">Espadón</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espadón</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Tratado_Virtuoso.jpg" alt="Tratado Virtuoso">
+                    </div>
+                    <div class="character-info">
+                        <h4>Tratado Virtuoso</h4>
+                        <span class="character-tag">Espadón</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espadón</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Colmillo_Gemelas.jpg" alt="Colmillo Gemelas">
+                    </div>
+                    <div class="character-info">
+                        <h4>Colmillo Gemelas</h4>
+                        <span class="character-tag">Espadón</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espadón</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Hacha_Mecanica.jpg" alt="Hacha Mecánica">
+                    </div>
+                    <div class="character-info">
+                        <h4>Hacha Mecánica</h4>
+                        <span class="character-tag">Espadón</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espadón</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Hoja_Tipo_3.jpg" alt="Hoja Tipo 3">
+                    </div>
+                    <div class="character-info">
+                        <h4>Hoja Tipo 3</h4>
+                        <span class="character-tag">Espadón</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espadón</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Voluntad_Ferrea.jpg" alt="Voluntad Férrea">
+                    </div>
+                    <div class="character-info">
+                        <h4>Voluntad Férrea</h4>
+                        <span class="character-tag">Espadón</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espadón</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Juramento_Sangre_Cruel.jpg" alt="Juramento Sangre Cruel">
+                    </div>
+                    <div class="character-info">
+                        <h4>Juramento Sangre Cruel</h4>
+                        <span class="character-tag">Espadón</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espadón</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Hoja_Tipo_40.jpg" alt="Hoja Tipo 40">
+                    </div>
+                    <div class="character-info">
+                        <h4>Hoja Tipo 40</h4>
+                        <span class="character-tag">Espadón</span>
+                        <ul class="character-data">
+                            <li><strong>Usuario:</strong> A2</li>
+                            <li><strong>Tipo:</strong> Espadón</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Espada_Fenix.jpg" alt="Espada Fénix">
+                    </div>
+                    <div class="character-info">
+                        <h4>Espada Fénix</h4>
+                        <span class="character-tag">Espadón</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Espadón</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- LANZAS                                        -->
+        <!-- ============================================= -->
+        <section class="featured-section">
+            <h3>Lanzas</h3>
+            <div class="card-grid">
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Dignidad_Virtuosa.jpg" alt="Dignidad Virtuosa">
+                    </div>
+                    <div class="character-info">
+                        <h4>Dignidad Virtuosa</h4>
+                        <span class="character-tag">Lanza</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Lanza</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Lanza_Mecanica.jpg" alt="Lanza Mecánica">
+                    </div>
+                    <div class="character-info">
+                        <h4>Lanza Mecánica</h4>
+                        <span class="character-tag">Lanza</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Lanza</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Lanza_Tipo_40.jpg" alt="Lanza Tipo 40">
+                    </div>
+                    <div class="character-info">
+                        <h4>Lanza Tipo 40</h4>
+                        <span class="character-tag">Lanza</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Lanza</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Lanza_Del_Usurpador.jpg" alt="Lanza del Usurpador">
+                    </div>
+                    <div class="character-info">
+                        <h4>Lanza del Usurpador</h4>
+                        <span class="character-tag">Lanza</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Lanza</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Lanza_Draconica.jpg" alt="Lanza Dracónica">
+                    </div>
+                    <div class="character-info">
+                        <h4>Lanza Dracónica</h4>
+                        <span class="character-tag">Lanza</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Lanza</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Maldicion_Bestial.jpg" alt="Maldición Bestial">
+                    </div>
+                    <div class="character-info">
+                        <h4>Maldición Bestial</h4>
+                        <span class="character-tag">Lanza</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Lanza</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Lanza_Tipo_3.jpg" alt="Lanza Tipo 3">
+                    </div>
+                    <div class="character-info">
+                        <h4>Lanza Tipo 3</h4>
+                        <span class="character-tag">Lanza</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Lanza</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Arrogancia_Cruel.jpg" alt="Arrogancia Cruel">
+                    </div>
+                    <div class="character-info">
+                        <h4>Arrogancia Cruel</h4>
+                        <span class="character-tag">Lanza</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Lanza</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Lanza_Fenix.jpg" alt="Lanza Fénix">
+                    </div>
+                    <div class="character-info">
+                        <h4>Lanza Fénix</h4>
+                        <span class="character-tag">Lanza</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Lanza</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- BRAZALETES DE COMBATE                         -->
+        <!-- ============================================= -->
+        <section class="featured-section">
+            <h3>Brazaletes de Combate</h3>
+            <div class="card-grid">
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Puños_Tipo_40.jpg" alt="Puños Tipo 40">
+                    </div>
+                    <div class="character-info">
+                        <h4>Puños Tipo 40</h4>
+                        <span class="character-tag">Brazalete</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Brazalete</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Grito_De_Demonio.jpg" alt="Grito de Demonio">
+                    </div>
+                    <div class="character-info">
+                        <h4>Grito de Demonio</h4>
+                        <span class="character-tag">Brazalete</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Brazalete</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Lamento_Cruel.jpg" alt="Lamento Cruel">
+                    </div>
+                    <div class="character-info">
+                        <h4>Lamento Cruel</h4>
+                        <span class="character-tag">Brazalete</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Brazalete</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Cabezas_Mecanicas.jpg" alt="Cabezas Mecánicas">
+                    </div>
+                    <div class="character-info">
+                        <h4>Cabezas Mecánicas</h4>
+                        <span class="character-tag">Brazalete</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Brazalete</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Puños_Tipo_3.jpg" alt="Puños Tipo 3">
+                    </div>
+                    <div class="character-info">
+                        <h4>Puños Tipo 3</h4>
+                        <span class="character-tag">Brazalete</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Brazalete</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Locura_Angelical.jpg" alt="Locura Angelical">
+                    </div>
+                    <div class="character-info">
+                        <h4>Locura Angelical</h4>
+                        <span class="character-tag">Brazalete</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Brazalete</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Pesar_Virtuoso.jpg" alt="Pesar Virtuoso">
+                    </div>
+                    <div class="character-info">
+                        <h4>Pesar Virtuoso</h4>
+                        <span class="character-tag">Brazalete</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Brazalete</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="info-card">
+                    <div class="character-image">
+                        <img src="../assets/images/armas/Cabezas_De_Emil.jpg" alt="Cabezas de Emil">
+                    </div>
+                    <div class="character-info">
+                        <h4>Cabezas de Emil</h4>
+                        <span class="character-tag">Brazalete</span>
+                        <ul class="character-data">
+                            <li><strong>Tipo:</strong> Brazalete</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- BARRA INFERIOR -->
+        <div class="bottom-bar">
+            <span>NieR:Automata Fan Archive • Base de Datos de Armas</span>
+            <div class="hints">
+                <span><span class="key">↑↓</span> Navegar</span>
+                <span><span class="key">↵</span> Confirmar</span>
+                <span><span class="key">ESC</span> Volver</span>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script src="../js/main.js"></script>
 </body>
-
 </html>
