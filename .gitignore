@@ -1,7 +1,6 @@
 # Archivos del sistema
 .DS_Store
 Thumbs.db
-.gitignore
 
 # VS Code
 .vscode/
@@ -12,3 +11,5 @@ node_modules/
 # Builds
 dist/
 build/
+
+css/backup/

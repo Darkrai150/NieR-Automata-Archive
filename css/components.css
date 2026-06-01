@@ -1,0 +1,349 @@
+/* ========================================================= */
+/* COMPONENTES REUTILIZABLES                                 */
+/* ========================================================= */
+
+/* ========================================================= */
+/* NAVEGACIÓN                                                */
+/* ========================================================= */
+
+/* Contenedor del menú de navegación */
+.nav-menu {
+    flex: 1;
+    padding: 8px 0;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cada enlace del menú */
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-dim);
+    padding: 14px 22px;
+    font-size: 0.62rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-left: 2px solid transparent;
+    position: relative;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        padding-left 0.25s ease;
+}
+
+/* Bullet cuadrado ■ antes de cada item del menú */
+.nav-menu a::before {
+    content: '■';
+    font-size: 1rem;
+    color: var(--border);
+    flex-shrink: 0;
+    transition: color 0.15s ease;
+}
+
+/* Estado hover */
+.nav-menu a:hover {
+    background:
+        linear-gradient(to right,
+            rgba(212, 176, 106, 0.08),
+            transparent);
+    color: var(--accent);
+    padding-left: 28px;
+}
+
+.nav-menu a:hover::before {
+    color: var(--text-dim);
+}
+
+/* Estado activo */
+.nav-menu a.active {
+    background:
+        linear-gradient(to right,
+            rgba(212, 176, 106, 0.18),
+            rgba(212, 176, 106, 0.02));
+    color: var(--accent);
+    border-left-color: var(--accent);
+    box-shadow:
+        inset 0 0 12px rgba(212, 176, 106, 0.08);
+}
+
+.nav-menu a.active::before {
+    color: var(--selected-text);
+}
+
+/* ========================================================= */
+/* SEARCH BOX                                                */
+/* ========================================================= */
+
+/* Contenedor del campo de búsqueda */
+.search-box {
+    position: relative;
+}
+
+/* Símbolo > antes del input como decoración */
+.search-box::before {
+    content: '>';
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 0.7rem;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+/* Cambia el > a oscuro cuando el input está enfocado */
+.search-box:focus-within::before {
+    color: var(--text);
+}
+
+/* Campo de búsqueda */
+.search-box input {
+    background:
+        rgba(255, 255, 255, 0.02);
+    border:
+        1px solid rgba(212, 176, 106, 0.08);
+    padding: 12px 14px 12px 32px;
+    color: var(--text);
+    width: 260px;
+    outline: none;
+    font-family: var(--font);
+    font-size: 0.58rem;
+    letter-spacing: 2px;
+    backdrop-filter: blur(6px);
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.search-box input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Focus del buscador */
+.search-box input:focus {
+    border-color:
+        rgba(212, 176, 106, 0.45);
+    background:
+        rgba(212, 176, 106, 0.04);
+    box-shadow:
+        0 0 18px rgba(212, 176, 106, 0.08);
+}
+
+/* ========================================================= */
+/* CARD GRID                                                 */
+/* ========================================================= */
+
+/* Grid de tarjetas — ancho fijo para que no se estiren si hay pocas */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 315px));
+    gap: 10px;
+    justify-content: center;
+    /* Alinea las tarjetas a la izquierda si no llenan toda la fila */
+}
+
+/* ========================================================= */
+/* INFO CARD                                                 */
+/* ========================================================= */
+
+/* Tarjeta individual */
+.info-card {
+    border: 5px solid var(--text-dim);
+    background: var(--card);
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 0 0 rgba(0, 0, 0, 0),
+        0 10px 30px rgba(0, 0, 0, 0.45);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+/* Oscurece la tarjeta al pasar el cursor */
+.info-card:hover {
+    background: var(--card-hover);
+    border-color: var(--accent-strong);
+    box-shadow:
+        0 0 20px rgba(212, 176, 106, 0.08),
+        0 10px 30px rgba(0, 0, 0, 0.6);
+    transform: translateY(-4px);
+}
+
+/* Fondo negro cuando la tarjeta está seleccionada */
+.info-card.selected,
+.info-card:focus {
+    background: var(--selected);
+    outline: none;
+}
+
+/* ========================================================= */
+/* CHARACTER IMAGE                                           */
+/* ========================================================= */
+
+/* Contenedor de la imagen del personaje */
+.character-image {
+    border-bottom: 5px solid var(--border);
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    /* Proporción portrait para personajes */
+    background-color: var(--panel);
+    position: relative;
+}
+
+/* Imagen en blanco y negro por defecto */
+.character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    filter: grayscale(50%) contrast(1.05);
+    transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+/* Al hacer hover: zoom sutil y regresa el color */
+.info-card:hover .character-image img {
+    transform: scale(1.03);
+    filter: grayscale(0%) contrast(1);
+}
+
+/* ========================================================= */
+/* CHARACTER INFO                                            */
+/* ========================================================= */
+
+/* Área de texto dentro de la tarjeta */
+.character-info {
+    padding: 16px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Nombre del personaje/arma/lugar */
+.info-card h4 {
+    color: var(--text);
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Bullet ■ antes del nombre */
+.info-card h4::before {
+    content: '■';
+    font-size: 1rem;
+    color: var(--text-dim);
+    flex-shrink: 0;
+}
+
+/* Nombre e ícono en blanco cuando la tarjeta está seleccionada */
+.info-card.selected h4,
+.info-card.selected h4::before {
+    color: var(--selected-text);
+}
+
+/* Texto descriptivo de la tarjeta */
+.info-card p {
+    color: var(--text-dim);
+    line-height: 1.8;
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+    flex: 1;
+    /* Empuja los datos al fondo de la card */
+}
+
+.info-card.selected p {
+    color: #a8a290;
+}
+
+/* ========================================================= */
+/* CHARACTER TAG                                             */
+/* ========================================================= */
+
+/* Etiqueta de categoría — ej: "Androide de Combate" */
+.character-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    margin-bottom: 10px;
+    background: var(--bg-dark);
+}
+
+.info-card.selected .character-tag {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #a8a290;
+}
+
+/* ========================================================= */
+/* CHARACTER DATA                                            */
+/* ========================================================= */
+
+/* Lista de datos — arma, afiliación, etc. */
+.character-data {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-top: 1px solid var(--border-light);
+    /* Línea separadora sobre los datos */
+    padding-top: 12px;
+    margin-top: 2px;
+    width: 100%;
+}
+
+/* Cada fila de datos — clave a la izquierda, valor a la derecha */
+.character-data li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+}
+
+/* Clave en negrita y color oscuro */
+.character-data li strong {
+    color: var(--text);
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Versiones en blanco/gris cuando la tarjeta está seleccionada */
+.info-card.selected .character-data {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.info-card.selected .character-data li {
+    color: #888;
+}
+
+.info-card.selected .character-data li strong {
+    color: #bbb;
+}

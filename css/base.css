@@ -1,0 +1,110 @@
+/* ========================================================= */
+/* RESET + VARIABLES                                         */
+/* ========================================================= */
+/* Elimina márgenes y padding por defecto en todos los elementos */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* El padding no afecta el tamaño total del elemento */
+}
+
+/* Colores y valores reutilizables en todo el CSS */
+:root {
+    --bg: #050505;
+    /* Fondo principal negro profundo */
+    --bg-dark: #0b0b0b;
+    /* Sidebar y header */
+    --bg-darker: #020202;
+    /* Barra inferior y zonas oscuras */
+    --panel: #101010;
+    /* Hero y paneles */
+    --card: #111111;
+    /* Tarjetas */
+    --card-hover: #181818;
+    /* Hover de tarjetas */
+    --selected: #d4b06a;
+    /* Elemento activo */
+    --selected-text: #050505;
+    /* Texto sobre selección */
+    --text: #d8d2c4;
+    /* Texto principal */
+    --text-dim: #8d8778;
+    /* Texto secundario */
+    --text-muted: #5f5a50;
+    /* Texto terciario */
+    --border: #1e1e1e;
+    /* Bordes */
+    --border-light: #2b2b2b;
+    /* Bordes suaves */
+    --accent: #d4b06a;
+    /* Dorado YoRHa */
+    --accent-soft: rgba(212, 176, 106, 0.12);
+    /* Glow suave */
+    --accent-strong: rgba(212, 176, 106, 0.4);
+    /* Glow fuerte */
+    --font: 'Orbitron', sans-serif;
+    /* Fuente principal */
+}
+
+/* ========================================================= */
+/* SCROLLBAR                                                 */
+/* ========================================================= */
+
+/* Ancho de la barra de scroll */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Fondo del carril del scroll */
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+/* Color del pulgar del scroll */
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+}
+
+/* Color del pulgar al pasar el cursor */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text);
+}
+
+/* ========================================================= */
+/* BASE                                                      */
+/* ========================================================= */
+
+/* Estilos globales del documento */
+body {
+    font-family: var(--font);
+    background:
+        radial-gradient(circle at top,
+            rgba(212, 176, 106, 0.04),
+            transparent 30%),
+        var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    /* Ocupa al menos toda la altura de la pantalla */
+    overflow-x: hidden;
+    /* Evita scroll horizontal */
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Patrón de puntos sobre toda la página, fijo al hacer scroll */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    /* Cubre toda la pantalla */
+    z-index: 0;
+    /* Detrás de todo el contenido */
+    pointer-events: none;
+    /* No interfiere con clics */
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 6px 6px;
+    /* Tamaño de la cuadrícula de puntos */
+}

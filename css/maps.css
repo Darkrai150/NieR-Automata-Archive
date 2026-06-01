@@ -1,0 +1,8 @@
+/* ========================================================= */
+/* MAPS — estilos exclusivos de la página de mapas           */
+/* ========================================================= */
+
+/* Proporción landscape para imágenes de mapas */
+.maps-page .character-image {
+    aspect-ratio: 16 / 9;
+}

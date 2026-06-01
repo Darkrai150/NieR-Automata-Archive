@@ -1,0 +1,8 @@
+/* ========================================================= */
+/* WEAPONS — estilos exclusivos de la página de armas        */
+/* ========================================================= */
+
+/* Proporción landscape para imágenes de armas */
+.weapons-page .character-image {
+    aspect-ratio: 16 / 9;
+}
